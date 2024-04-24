@@ -1,10 +1,16 @@
-import Image from "next/image";
+"use client";
+
+import React, { useState } from "react";
 import styles from "./page.module.css";
+import FirstScreen from "./components/FirstScreen/page";
+import TopCloudCost from "./top-cloud-cost/page";
 
 export default function Home() {
+  const [isQuestionAsk, setIsQuestionAsk] = useState(false);
   return (
     <main className={styles.main}>
-      <h1>Hiiii</h1>
+      <FirstScreen setIsQuestionAsk={setIsQuestionAsk} />
+      {/* <TopCloudCost /> */}
     </main>
   );
 }

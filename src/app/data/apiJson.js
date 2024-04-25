@@ -1,4 +1,5 @@
-export const queryTitles = [
+export const QuestionSetData = {
+  queryTitles: [
     {
       titleId: 1,
       titleName: "Top cloud costs by services in production account",
@@ -24,9 +25,8 @@ export const queryTitles = [
       titleUniqueId: "",
       isActive: false,
     },
-  ];
-
-  export const reduceCostQueryTitles = [
+  ],
+  reduceCostQueryTitles: [
     {
       titleId: 1,
       titleName: "Which service costs are rising the fastest?",
@@ -39,8 +39,7 @@ export const queryTitles = [
     },
     {
       titleId: 3,
-      titleName:
-        "How can I reduce my RDS costs?",
+      titleName: "How can I reduce my RDS costs?",
       isActive: false,
     },
     {
@@ -48,9 +47,8 @@ export const queryTitles = [
       titleName: "How can I reduce my EC2 costs?",
       isActive: true,
     },
-  ];
-
-  export const increseCostQueryTitles = [
+  ],
+  increaseCostQueryTitles: [
     {
       titleId: 1,
       titleName: "Which service costs are rising the fastest?",
@@ -63,8 +61,7 @@ export const queryTitles = [
     },
     {
       titleId: 3,
-      titleName:
-        "How can I reduce my RDS costs?",
+      titleName: "How can I reduce my RDS costs?",
       isActive: false,
     },
     {
@@ -72,4 +69,5 @@ export const queryTitles = [
       titleName: "Why are EC2 costs increasing so much?",
       isActive: true,
     },
-  ];
+  ],
+};

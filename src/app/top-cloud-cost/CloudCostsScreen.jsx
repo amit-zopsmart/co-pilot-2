@@ -1,27 +1,36 @@
 import React from "react";
 import { CssBaseline } from "@mui/material";
-import { Container, Box } from "@mui/system";
-import QueryComponent from "../components/common/queryComponent";
+import { Container, Box, Stack } from "@mui/system";
 import Feedback from "../components/Feedback";
-import PieChartComponent from "../components/PieChartComponent";
-import SQLQueryComponent from "../components/SQLQueryComponent";
-import ReduceEC2CostAnswer from "../components/ReduceEC2CostAnswer";
-import IncreaseEC2CostAnswer from "../components/IncreaseEC2CostAnswer";
+import { useQuery } from "../hooks/useQueryContext";
+import FirstView from "../components/FirstView";
+import SecondView from "../components/SecondView";
 
-const CloudCostsScreen = ({ queryTitle }) => {
+const getItemComponent = (id, text) => {
+  switch (id) {
+    case "queryTitles":
+      return <FirstView text={text} />;
+    case "reduceCostQueryTitles":
+      return <SecondView text={text} />;
+    case "increaseCostQueryTitles":
+      return <FirstView text={text} />;
+  }
+};
+const CloudCostsScreen = () => {
+  const { myFlow } = useQuery();
   return (
     <>
       <CssBaseline />
       <Container maxWidth="lg">
         <Box sx={{ height: "100vh" }}>
-          <QueryComponent queryTitle={queryTitle} />
-          <SQLQueryComponent />
-          <PieChartComponent />
-          <QueryComponent queryTitle="How can I reduce my EC2 costs?" />
-          <ReduceEC2CostAnswer />
-          <QueryComponent queryTitle="Why are EC2 costs increases so much?" />
-          <IncreaseEC2CostAnswer />
-          <Feedback />
+          {myFlow.map(({ id, text }) => {
+            return getItemComponent(id, text);
+          })}
+          {myFlow.length >= 3 && (
+            <Stack sx={{ mt: 2 }}>
+              <Feedback />
+            </Stack>
+          )}
         </Box>
       </Container>
     </>

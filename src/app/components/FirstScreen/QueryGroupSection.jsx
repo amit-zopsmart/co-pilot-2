@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import AskQueryBox from "../common/askQueryBox";
 
 const QueryGroupSection = ({ queryTitles }) => {
+  console.log('queryTitles', queryTitles);
   return (
     <Box
       sx={{
@@ -24,7 +25,7 @@ const QueryGroupSection = ({ queryTitles }) => {
           width: "100%",
         }}
       >
-        {queryTitles.slice(0, 2).map((quesTitle) => (
+        {queryTitles?.slice(0, 2).map((quesTitle) => (
           <AskQueryBox
             key={quesTitle.titleId}
             queryTitle={quesTitle.titleName}
@@ -43,7 +44,7 @@ const QueryGroupSection = ({ queryTitles }) => {
           width: "100%",
         }}
       >
-        {queryTitles.slice(2).map((quesTitle) => (
+        {queryTitles?.slice(2).map((quesTitle) => (
           <AskQueryBox
             key={quesTitle.titleId}
             queryTitle={quesTitle.titleName}

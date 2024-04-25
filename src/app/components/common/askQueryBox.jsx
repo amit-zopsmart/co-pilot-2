@@ -1,15 +1,20 @@
 "use client";
 
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
-import { useRouter } from "next/navigation";
-import { QueryContext } from "../../hooks/useQueryContext";
+import { useQuery } from "../../hooks/useQueryContext";
+import { QuestionSet } from "@/constant";
 
 const AskQueryBox = ({ queryTitle, queryId, isActive }) => {
-  const router = useRouter();
   const [hovered, setHovered] = useState(false);
-  const { isQuestionAsk, setIsQuestionAsk } = useContext(QueryContext);
+  const {
+    isQuestionAsk,
+    setIsQuestionAsk,
+    setMyFlow,
+    currQuestionInd,
+    setLoading,
+  } = useQuery();
 
   const shadowValues = {
     none: "none",
@@ -46,12 +51,14 @@ const AskQueryBox = ({ queryTitle, queryId, isActive }) => {
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      // onClick={() => isActive && setIsQuestionAsk(true)}
-      // onClick={() =>  isActive &&  router.push('/top-cloud-cost')}
       onClick={() => {
         if (isActive) {
-          setIsQuestionAsk(!isQuestionAsk);
-          router.push("/top-cloud-cost");
+          setIsQuestionAsk(true);
+          setMyFlow((prev) => [
+            ...prev,
+            { id: QuestionSet[currQuestionInd], text: queryTitle },
+          ]);
+          setLoading(true);
         }
       }}
     >

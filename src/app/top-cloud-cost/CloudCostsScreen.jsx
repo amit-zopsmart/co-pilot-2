@@ -1,44 +1,27 @@
-import { useState, useEffect } from "react";
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  TableContainer,
-  Table,
-  TableHead,
-  TableRow,
-  TableCell,
-  TableBody,
-  Button,
-  CircularProgress,
-  CssBaseline,
-} from "@mui/material";
-import { Box, Container, Stack } from "@mui/system";
+import React from "react";
+import { CssBaseline } from "@mui/material";
+import { Container, Box } from "@mui/system";
+import QueryComponent from "../components/common/queryComponent";
+import Feedback from "../components/Feedback";
+import PieChartComponent from "../components/PieChartComponent";
+import SQLQueryComponent from "../components/SQLQueryComponent";
+import ReduceEC2CostAnswer from "../components/ReduceEC2CostAnswer";
+import IncreaseEC2CostAnswer from "../components/IncreaseEC2CostAnswer";
 
-const CloudCostsScreen = () => {
-  const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      setLoading(true);
-      // Replace this with your actual API call to execute the query
-      const result = await fetch("/api/cloud-costs");
-      const data = await result.json();
-      setData(data);
-      setLoading(false);
-    };
-
-    fetchData();
-  }, []);
+const CloudCostsScreen = ({ queryTitle }) => {
   return (
     <>
       <CssBaseline />
       <Container maxWidth="lg">
         <Box sx={{ height: "100vh" }}>
-          <Stack sx={{ bgcolor: "#cfe8fc", height: "60px", width: "full", borderRadius: '15px', p: '16px', mt: '4px' }}>
-            <Typography>reduce cost</Typography>
-          </Stack>
+          <QueryComponent queryTitle={queryTitle} />
+          <SQLQueryComponent />
+          <PieChartComponent />
+          <QueryComponent queryTitle="How can I reduce my EC2 costs?" />
+          <ReduceEC2CostAnswer />
+          <QueryComponent queryTitle="Why are EC2 costs increases so much?" />
+          <IncreaseEC2CostAnswer />
+          <Feedback />
         </Box>
       </Container>
     </>

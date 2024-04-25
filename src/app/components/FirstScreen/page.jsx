@@ -2,10 +2,14 @@ import React from "react";
 import { Box } from "@mui/material";
 import InputBox from "./InputBox";
 import QueryGroupSection from "./QueryGroupSection";
-const FirstScreen = ({ setIsQuestionAsk }) => {
+import { queryTitles } from "../../data/apiJson";
+
+const FirstScreen = () => {
   return (
     <Box sx={{ position: "fixed", bottom: 3 }}>
-      <QueryGroupSection setIsQuestionAsk={setIsQuestionAsk} />
+      <QueryGroupSection
+        queryTitles={queryTitles}
+      />
       <InputBox />
     </Box>
   );

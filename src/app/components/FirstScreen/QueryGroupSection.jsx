@@ -2,35 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import AskQueryBox from "../common/askQueryBox";
 
-const queryTitles = [
-  {
-    titleId: 1,
-    titleName: "Top cloud costs by services in production account",
-    titleUniqueId: "(#24542)",
-    isActive: true,
-  },
-  {
-    titleId: 2,
-    titleName: "Which application's cost are increasing fastest? ",
-    titleUniqueId: "",
-    isActive: false,
-  },
-  {
-    titleId: 3,
-    titleName:
-      "How much money are we losing by not moving to graviton instances?",
-    titleUniqueId: "",
-    isActive: false,
-  },
-  {
-    titleId: 4,
-    titleName: "Which are the largest s3 bucket size?",
-    titleUniqueId: "",
-    isActive: false,
-  },
-];
-
-const QueryGroupSection = ({setIsQuestionAsk}) => {
+const QueryGroupSection = ({ queryTitles }) => {
   return (
     <Box
       sx={{
@@ -58,7 +30,6 @@ const QueryGroupSection = ({setIsQuestionAsk}) => {
             queryTitle={quesTitle.titleName}
             queryId={quesTitle.titleUniqueId}
             isActive={quesTitle.isActive}
-            setIsQuestionAsk={setIsQuestionAsk}
           />
         ))}
       </Box>
@@ -78,7 +49,6 @@ const QueryGroupSection = ({setIsQuestionAsk}) => {
             queryTitle={quesTitle.titleName}
             queryId={quesTitle.titleUniqueId}
             isActive={quesTitle.isActive}
-            setIsQuestionAsk={setIsQuestionAsk}
           />
         ))}
       </Box>

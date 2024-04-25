@@ -1,13 +1,15 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Box, Typography, IconButton } from "@mui/material";
 import SendOutlinedIcon from "@mui/icons-material/SendOutlined";
 import { useRouter } from "next/navigation";
+import { QueryContext } from "../../hooks/useQueryContext";
 
-const AskQueryBox = ({ queryTitle, queryId, isActive, setIsQuestionAsk }) => {
-  const router = useRouter()
+const AskQueryBox = ({ queryTitle, queryId, isActive }) => {
+  const router = useRouter();
   const [hovered, setHovered] = useState(false);
+  const { isQuestionAsk, setIsQuestionAsk } = useContext(QueryContext);
 
   const shadowValues = {
     none: "none",
@@ -45,7 +47,13 @@ const AskQueryBox = ({ queryTitle, queryId, isActive, setIsQuestionAsk }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       // onClick={() => isActive && setIsQuestionAsk(true)}
-      onClick={() =>  isActive &&  router.push('/top-cloud-cost')}
+      // onClick={() =>  isActive &&  router.push('/top-cloud-cost')}
+      onClick={() => {
+        if (isActive) {
+          setIsQuestionAsk(!isQuestionAsk);
+          router.push("/top-cloud-cost");
+        }
+      }}
     >
       <Box
         sx={{

@@ -15,7 +15,6 @@ const AskQueryBox = ({ queryTitle, queryId, isActive }) => {
     currQuestionInd,
     setLoading,
   } = useQuery();
-
   const shadowValues = {
     none: "none",
     "0-4px-4px": "0px 4px 4px rgba(0, 0, 0, 0.25)",

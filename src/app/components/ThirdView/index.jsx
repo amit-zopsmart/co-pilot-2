@@ -1,9 +1,9 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 import QueryComponent from "../common/queryComponent";
-import ReduceEC2CostAnswer from "./ReduceEC2CostAnswer";
+import IncreaseEC2CostAnswer from "./IncreaseEC2CostAnswer";
 
-const SecondView = ({ text }) => {
+const ThirdView = ({ text }) => {
   const [stepper, setStepper] = useState(1);
   return (
     <Box
@@ -15,9 +15,9 @@ const SecondView = ({ text }) => {
       }}
     >
       <QueryComponent queryTitle={text} />
-      <ReduceEC2CostAnswer setStepper={setStepper} stepper={stepper} />
+      <IncreaseEC2CostAnswer setStepper={setStepper} stepper={stepper} />
     </Box>
   );
 };
 
-export default SecondView;
+export default ThirdView;

@@ -1,22 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar } from "@mui/material";
 import { Box, Stack } from "@mui/system";
 import { Typography } from "@mui/material";
-import AccordionComponent from "../components/common/AccordionComponent";
-import QueryGroupSection from "../components/FirstScreen/QueryGroupSection";
+import AccordionComponent from "../common/AccordionComponent";
+import QueryGroupSection from "../FirstScreen/QueryGroupSection";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import { QuestionSetData } from "../data/apiJson";
+import { QuestionSetData } from "../../data/apiJson";
 import { QuestionSet } from "@/constant";
 import { useQuery } from "@/app/hooks/useQueryContext";
+import QueryComponent from "../common/queryComponent";
 
 const ReduceEC2CostAnswer = ({ setStepper, stepper }) => {
   const [loading, setLoading] = useState(true);
-  const { setCurrQuestionInd } = useQuery();
+  const { currQuestionInd, setCurrQuestionInd } = useQuery();
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
       setStepper(3);
-      setCurrQuestionInd((curr) => Math.max(curr + 1, 2));
+      setCurrQuestionInd(2);
     }, 1000);
   }, []);
 
@@ -90,7 +91,9 @@ const ReduceEC2CostAnswer = ({ setStepper, stepper }) => {
             <KeyboardArrowUpIcon />
           </Stack>
           {stepper > 1 ? (
-            <QueryGroupSection queryTitles={QuestionSetData[QuestionSet[2]]} />
+            <QueryGroupSection
+              queryTitles={QuestionSetData[QuestionSet[currQuestionInd]]}
+            />
           ) : null}
         </AccordionComponent>
       )}

@@ -4,13 +4,13 @@ import { Box, Stack } from "@mui/system";
 import { Typography } from "@mui/material";
 import IosShareIcon from "@mui/icons-material/IosShare";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
-import AccordionComponent from "../components/common/AccordionComponent";
-import QueryGroupSection from "../components/FirstScreen/QueryGroupSection";
+import AccordionComponent from "../common/AccordionComponent";
+import QueryGroupSection from "../FirstScreen/QueryGroupSection";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import CustomPieChart from "../components/charts/CustomPieChart";
-import QueryComponent from "./common/queryComponent";
-import { QuestionSetData } from "../data/apiJson";
-import { QuestionSet } from "../../constant";
+import CustomPieChart from "../charts/CustomPieChart";
+import QueryComponent from "../common/queryComponent";
+import { QuestionSetData } from "../../data/apiJson";
+import { QuestionSet } from "../../../constant";
 import { useQuery } from "@/app/hooks/useQueryContext";
 
 const PieChartComponent = ({ setStepper }) => {
@@ -20,7 +20,7 @@ const PieChartComponent = ({ setStepper }) => {
     setTimeout(() => {
       setLoading(false);
       setStepper(3);
-      setCurrQuestionInd((curr) => Math.max(curr + 1, 2));
+      setCurrQuestionInd(1);
     }, 1000);
   }, []);
   return (
@@ -81,7 +81,9 @@ const PieChartComponent = ({ setStepper }) => {
             />
             <KeyboardArrowUpIcon />
           </Stack>
-          <QueryGroupSection queryTitles={QuestionSetData[QuestionSet[1]]} />
+          <QueryGroupSection
+            queryTitles={QuestionSetData[QuestionSet[currQuestionInd]]}
+          />
         </AccordionComponent>
       )}
     </Box>

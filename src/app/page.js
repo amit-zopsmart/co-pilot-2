@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, createContext } from "react";
+import React from "react";
 import styles from "./page.module.css";
 import FirstScreen from "./components/FirstScreen/page";
 

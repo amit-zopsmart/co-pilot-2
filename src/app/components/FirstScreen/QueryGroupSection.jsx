@@ -3,7 +3,6 @@ import { Box } from "@mui/material";
 import AskQueryBox from "../common/askQueryBox";
 
 const QueryGroupSection = ({ queryTitles }) => {
-  console.log('queryTitles', queryTitles);
   return (
     <Box
       sx={{

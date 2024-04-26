@@ -1,8 +1,8 @@
 import React from "react";
 import { Box } from "@mui/material";
 // import DotLoader from '../../Loader/DotLoader';
-import CopyToClipboardButton from "./common/CopyToClipboard";
-import { Code } from "../libs/atoms";
+import CopyToClipboardButton from "../common/CopyToClipboard";
+import { Code } from "../../libs/atoms";
 
 export const ShowSQL = () => {
   return (

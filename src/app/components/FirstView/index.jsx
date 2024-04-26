@@ -1,8 +1,8 @@
 import { Box } from "@mui/material";
 import React, { useState } from "react";
 import QueryComponent from "../common/queryComponent";
-import SQLQueryComponent from "../SQLQueryComponent";
-import PieChartComponent from "../PieChartComponent";
+import SQLQueryComponent from "./SQLQueryComponent";
+import PieChartComponent from "./PieChartComponent";
 
 const FirstView = ({ text }) => {
   const [stepper, setStepper] = useState(1);

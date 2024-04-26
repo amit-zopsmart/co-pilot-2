@@ -10,9 +10,11 @@ const FirstScreen = () => {
   const { currQuestionInd, isQuestionAsk } = useQuery();
   return (
     <Box sx={{ position: "fixed", bottom: 3 }}>
-      <QueryGroupSection
-        queryTitles={QuestionSetData[QuestionSet[currQuestionInd]]}
-      />
+      {currQuestionInd === 0 && (
+        <QueryGroupSection
+          queryTitles={QuestionSetData[QuestionSet[currQuestionInd]]}
+        />
+      )}
       {!isQuestionAsk && <InputBox />}
     </Box>
   );

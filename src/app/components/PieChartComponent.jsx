@@ -15,7 +15,7 @@ import { useQuery } from "@/app/hooks/useQueryContext";
 
 const PieChartComponent = ({ setStepper }) => {
   const [loading, setLoading] = useState(true);
-  const { setCurrQuestionInd } = useQuery();
+  const { currQuestionInd, setCurrQuestionInd } = useQuery();
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -81,9 +81,7 @@ const PieChartComponent = ({ setStepper }) => {
             />
             <KeyboardArrowUpIcon />
           </Stack>
-          <QueryGroupSection
-            queryTitles={QuestionSetData[QuestionSet[1]]}
-          />
+          <QueryGroupSection queryTitles={QuestionSetData[QuestionSet[1]]} />
         </AccordionComponent>
       )}
     </Box>

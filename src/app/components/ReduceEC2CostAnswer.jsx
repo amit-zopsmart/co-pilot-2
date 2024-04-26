@@ -15,10 +15,11 @@ const ReduceEC2CostAnswer = ({ setStepper, stepper }) => {
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-      setStepper(2);
+      setStepper(3);
       setCurrQuestionInd((curr) => Math.max(curr + 1, 2));
     }, 1000);
   }, []);
+
   return (
     <Box sx={{ width: "100%" }}>
       {loading ? (

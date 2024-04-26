@@ -1,10 +1,10 @@
 import React from "react";
 import { CssBaseline } from "@mui/material";
 import { Container, Box, Stack } from "@mui/system";
-import Feedback from "../components/Feedback";
+import Feedback from "./Feedback";
 import { useQuery } from "../hooks/useQueryContext";
-import FirstView from "../components/FirstView";
-import SecondView from "../components/SecondView";
+import FirstView from "./FirstView";
+import SecondView from "./SecondView";
 
 const getItemComponent = (id, text) => {
   switch (id) {
@@ -22,11 +22,11 @@ const CloudCostsScreen = () => {
     <>
       <CssBaseline />
       <Container maxWidth="lg">
-        <Box sx={{ height: "100vh" }}>
+        <Box>
           {myFlow.map(({ id, text }) => {
             return getItemComponent(id, text);
           })}
-          {myFlow.length >= 3 && (
+          {myFlow.length >= 2 && (
             <Stack sx={{ mt: 2 }}>
               <Feedback />
             </Stack>

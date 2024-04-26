@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import QueryComponent from "./common/queryComponent";
 import ContentCopyIcon from "@mui/icons-material/ContentCopy";
 import CachedIcon from "@mui/icons-material/Cached";
-import { ShowSQL } from "../top-cloud-cost/ShowSQL";
+import { ShowSQL } from "./ShowSQL";
 import AccordionComponent from "./common/AccordionComponent";
 const SQLQueryComponent = ({ setStepper }) => {
   const [loading, setLoading] = useState(true);
